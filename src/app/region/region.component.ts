@@ -11,6 +11,7 @@ import { books } from '../model/book-list';
 export class RegionComponent {
   region: string | null = null;
   regionBooks: Book[] | null = null;
+  regionDisplayName!: string;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -31,9 +32,11 @@ export class RegionComponent {
     if (this.region === 'Other') {
       // Include books that do not have any of the predefined regions in their associations
       this.regionBooks = books.filter(book => !predefinedregions.some(region => book.associations.includes(region)));
+      this.regionDisplayName = 'Other Regions'
     } else {
       // Include books that match the selected region
       this.regionBooks = books.filter(book => book.associations.includes(this.region!));
+      this.regionDisplayName = 'Works of ' + this.region;
     }
   }
 }

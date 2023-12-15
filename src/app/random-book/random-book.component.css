@@ -1,6 +1,39 @@
 .randomBook {
     display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
-    height: 100vh; /* Take up the full viewport height */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align the items */
+    padding: 20px; /* Add some padding around */
 }
+
+.suggestion {
+    font-family: 'Georgia', serif; /* Elegant, readable font */
+    font-size: 1.6em; /* Larger font size */
+    color: #FFD700; /* Gold color for contrast */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.app-book-card {
+    /* Add styles for your app-book-card if needed */
+    margin-bottom: 20px; /* Space below the book card */
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center; /* Center the button group */
+    width: 100%;
+    margin-top: 20px; /* Add top margin to create space */
+}
+
+.button-group {
+    display: inline-flex; /* Inline flex to fit the content */
+    gap: 10px; /* Gap between the buttons */
+}
+
+.moreSimilar, .getNewBook {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    /* No margin needed here as the gap is managed by .button-group */
+}
+
+

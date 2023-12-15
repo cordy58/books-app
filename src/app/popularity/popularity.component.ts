@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PopularityComponent {
   popularity: string | null = null;
   popularityBooks: Book[] | null = null;
+  popDisplayName!: string;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -18,6 +19,7 @@ export class PopularityComponent {
     this.route.paramMap.subscribe(params => {
       this.popularity = params.get('pop');
       this.filterBookList();
+      this.getCategory();
     });
   }
 
@@ -34,6 +36,14 @@ export class PopularityComponent {
     } else {
       // Include books that match the selected popularity
       this.popularityBooks = books.filter(book => book.associations.includes(this.popularity!));
+    }
+  }
+
+  getCategory() {
+    if (this.popularity == 'Popular') {
+      this.popDisplayName = 'Well Read, Celebrated Works'
+    } else {
+      this.popDisplayName = 'Under Read, Celebrated Works'
     }
   }
 }

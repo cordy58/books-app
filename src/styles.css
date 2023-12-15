@@ -1,44 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #d0e0f0; /* Light blue color */
+    background-image: url('./assets/images/library.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 20%;
     margin: 0;
     font-family: Arial, sans-serif;
 }
   
 .book-container {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 20px; /* Space between cards */
+    flex-direction: column; /* Stacks label and card container vertically */
+    align-items: center; /* Center items horizontally */
     padding: 20px;
 }
 
+.componentLabel {
+    font-family: 'Georgia', serif;
+    font-size: 1.6em;
+    color: #FFD700;
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center;
+}
+
+.book-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Space between cards */
+    width: 100%; /* Take full width */
+}
+
 .book-card {
-    width: 300px; /* Width of each card */
-    height: 300px; /* Height of each card */
+    width: 300px;
+    height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 15px;
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden;
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.book-card:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid white on hover */
 }
 
 .book-content {
-    overflow-y: auto; /* Enable vertical scroll for text */
+    overflow-y: auto;
     height: 100%;
 }
 
 h2, h4 {
-    margin: 5px 0; /* Margins for title and author */
+    margin: 5px 0;
 }
 
 .book-card p {
     font-size: 1em;
     text-align: justify;
-    margin-top: 10px; /* Spacing above the summary */
+    margin-top: 10px;
 }

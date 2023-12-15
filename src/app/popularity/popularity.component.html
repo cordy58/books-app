@@ -1,3 +1,8 @@
 <div class="book-container">
-    <app-book-card *ngFor="let book of popularityBooks" [book]="book"></app-book-card>
+    <h4 class="componentLabel">
+        {{popDisplayName}}
+    </h4>
+    <div class="book-cards-container">
+        <app-book-card *ngFor="let book of popularityBooks" [book]="book"></app-book-card>
+    </div>
 </div>

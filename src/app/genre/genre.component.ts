@@ -12,6 +12,7 @@ import { Book } from '../model/book.model';
 export class GenreComponent {
   genre: string | null = null;
   genreBooks: Book[] | null = null;
+  genreDisplayName!: string;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,6 +20,7 @@ export class GenreComponent {
     this.route.paramMap.subscribe(params => {
       this.genre = params.get('genre');
       this.filterBookList();
+      this.getGenreDisplayName();
     });
   }
 
@@ -35,6 +37,18 @@ export class GenreComponent {
     } else {
       // Include books that match the selected genre
       this.genreBooks = books.filter(book => book.associations.includes(this.genre!));
+    }
+  }
+
+  getGenreDisplayName() {
+    if (this.genre === 'Other') {
+      this.genreDisplayName = "Works From Assorted Genres";
+    } else if (this.genre === 'Historical') {
+      this.genreDisplayName = "Works of Historical Fiction";
+    } else if (this.genre === 'Epic') {
+      this.genreDisplayName = "Epic Works";
+    } else {
+      this.genreDisplayName = 'Works of ' + this.genre;
     }
   }
 }
